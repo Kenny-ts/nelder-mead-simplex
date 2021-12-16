@@ -67,13 +67,13 @@ namespace NumUtilsTests
             RegressionResult result = NelderMeadSimplex.Regress(constants, tolerance, maxEvals, objFunction);
             _printResult(result);
         }
-
+        public static int calCount = 0;
         private static double _objFunction2(double[] constants)
         {
-            Console.Write("Called with x1={0} x2={1} ", constants[0], constants[1]);
+            Console.Write($"{calCount}´ÎCalled with x1={ constants[0]} x2={ constants[1]} ");
             double err = 100 * Math.Pow((constants[1] - constants[0] * constants[0]), 2) + Math.Pow((1 - constants[0]), 2);
             Console.WriteLine("  err={0}", err);
-
+            calCount++;
             return err;
         }
 
